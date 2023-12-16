@@ -1,4 +1,4 @@
-name: Todoweb-Server # EB 어플리케이션 이름
+name: todoweb-server-eb # EB 어플리케이션 이름
 
 on:
   push:
@@ -48,8 +48,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }} # github secrets로 등록한 값 사용
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # github secrets로 등록한 값 사용
-          application_name: Todoweb-Server # EB application 이름
-          environment_name: Todoweb-Server-env # EB environment 이름
+          application_name: todoweb-server-eb # EB application 이름
+          environment_name: todoweb-server-eb-env # EB environment 이름
           version_label: Github Action-${{steps.current-time.outputs.formattedTime}} # 배포 버전은 타임스탬프를 이용하여 구분
           region: ap-northeast-2
           deployment_package: deploy/deploy.zip
