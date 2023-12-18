@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${rds.url}
-    username: ${rds.username}
-    password: ${rds.password}
+    url: jdbc:mysql://jindb.c4ig677ki5ad.ap-northeast-2.rds.amazonaws.com:3306/study
+    username: root
+    password: Kgs77220!
     driver-class-name: com.mysql.cj.jdbc.Driver
   sql:
     init:
