@@ -1,4 +1,4 @@
-name: todoweb-server-eb # EB 어플리케이션 이름
+name: todoweb-server-eb CI/CD # EB 어플리케이션 이름
 
 on:
   push:
@@ -16,6 +16,16 @@ jobs:
         uses: actions/setup-java@v1 
         with:
           java-version: 17
+
+      - name: Set Environment
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: ./src/main/resources/application.yml
+        env:
+          spring.datasource.url: ${{ secrets.DB_URL }}
+          spring.datasource.username: ${{ secrets.DB_USER }}
+          spring.datasource.password: ${{ secrets.DB_PASSWORD }}
+
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
